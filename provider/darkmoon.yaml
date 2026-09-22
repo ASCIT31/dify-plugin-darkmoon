@@ -1,0 +1,59 @@
+identity:
+  author: ascit31
+  name: darkmoon
+  label:
+    en_US: Darkmoon Autonomous Pentest
+    zh_Hans: Darkmoon 自主渗透测试
+    pt_BR: Darkmoon Teste de Intrusao Autonomo
+  description:
+    en_US: Trigger a Darkmoon AI penetration test against an authorised target, pull findings, and review the fix pull requests it prepares.
+    zh_Hans: 对授权目标触发 Darkmoon AI 渗透测试，拉取发现结果，并查看其准备的修复拉取请求。
+    pt_BR: Dispare um teste de intrusao com IA do Darkmoon contra um alvo autorizado, obtenha os resultados e revise os pull requests de correcao.
+  icon: icon.svg
+tools:
+  - tools/run_pentest.yaml
+  - tools/get_findings.yaml
+  - tools/list_campaigns.yaml
+  - tools/list_pull_requests.yaml
+credentials_for_provider:
+  base_url:
+    type: text-input
+    required: true
+    label:
+      en_US: Darkmoon Dashboard API base URL
+      zh_Hans: Darkmoon Dashboard API 基础地址
+      pt_BR: URL base da Darkmoon Dashboard API
+    placeholder:
+      en_US: http://darkmoon.internal:8000
+      zh_Hans: http://darkmoon.internal:8000
+      pt_BR: http://darkmoon.internal:8000
+    help:
+      en_US: The base URL of your self-hosted Darkmoon Dashboard API (FastAPI, typically on port 8000). Darkmoon is self-hosted; there is no public endpoint.
+      zh_Hans: 你自托管的 Darkmoon Dashboard API 的基础地址（FastAPI，通常在 8000 端口）。Darkmoon 为自托管，无公共端点。
+      pt_BR: A URL base da sua Darkmoon Dashboard API auto-hospedada (FastAPI, geralmente na porta 8000). O Darkmoon e auto-hospedado; nao ha endpoint publico.
+    url: https://github.com/ASCIT31/Dark-Moon
+  username:
+    type: text-input
+    required: true
+    label:
+      en_US: Dashboard username
+      zh_Hans: 控制台用户名
+      pt_BR: Usuario do painel
+    placeholder:
+      en_US: Enter your Darkmoon dashboard username
+      zh_Hans: 输入你的 Darkmoon 控制台用户名
+      pt_BR: Digite seu usuario do painel Darkmoon
+  password:
+    type: secret-input
+    required: true
+    label:
+      en_US: Dashboard password
+      zh_Hans: 控制台密码
+      pt_BR: Senha do painel
+    placeholder:
+      en_US: Enter your Darkmoon dashboard password
+      zh_Hans: 输入你的 Darkmoon 控制台密码
+      pt_BR: Digite sua senha do painel Darkmoon
+extra:
+  python:
+    source: provider/darkmoon.py

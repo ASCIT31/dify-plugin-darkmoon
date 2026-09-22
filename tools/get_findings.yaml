@@ -1,0 +1,35 @@
+identity:
+  name: get_findings
+  author: ascit31
+  label:
+    en_US: Get Findings
+    zh_Hans: 获取发现结果
+    pt_BR: Obter Resultados
+  description:
+    en_US: Return the vulnerabilities and aggregated stats for a Darkmoon campaign.
+    zh_Hans: 返回某个 Darkmoon 活动的漏洞与汇总统计。
+    pt_BR: Retorna as vulnerabilidades e estatisticas agregadas de uma campanha do Darkmoon.
+  icon: icon.svg
+description:
+  human:
+    en_US: Fetch the findings and severity statistics for a campaign id.
+    zh_Hans: 根据活动 id 获取发现结果与严重性统计。
+    pt_BR: Busca os resultados e estatisticas de severidade de um id de campanha.
+  llm: Return the vulnerabilities and aggregated severity statistics for a given Darkmoon campaign id. Findings may contain false positives and require human review.
+parameters:
+  - name: campaign_id
+    type: string
+    required: true
+    label:
+      en_US: Campaign id
+      zh_Hans: 活动 id
+      pt_BR: Id da campanha
+    human_description:
+      en_US: The Darkmoon campaign id (for example camp_20260922_abc123).
+      zh_Hans: Darkmoon 活动 id（例如 camp_20260922_abc123）。
+      pt_BR: O id da campanha do Darkmoon (por exemplo camp_20260922_abc123).
+    llm_description: The Darkmoon campaign id to fetch findings for.
+    form: llm
+extra:
+  python:
+    source: tools/get_findings.py

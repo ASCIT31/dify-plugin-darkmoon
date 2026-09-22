@@ -1,0 +1,79 @@
+identity:
+  name: list_pull_requests
+  author: ascit31
+  label:
+    en_US: List Pull Requests
+    zh_Hans: 列出拉取请求
+    pt_BR: Listar Pull Requests
+  description:
+    en_US: Return the fix pull requests Darkmoon prepared (read-only), optionally scoped to a campaign and filtered by state.
+    zh_Hans: 返回 Darkmoon 准备的修复拉取请求（只读），可按活动范围和状态过滤。
+    pt_BR: Retorna os pull requests de correcao preparados pelo Darkmoon (somente leitura), opcionalmente por campanha e filtrados por estado.
+  icon: icon.svg
+description:
+  human:
+    en_US: List the fix pull requests Darkmoon prepared. Read-only - it never merges a pull request.
+    zh_Hans: 列出 Darkmoon 准备的修复拉取请求。只读，绝不合并任何拉取请求。
+    pt_BR: Lista os pull requests de correcao preparados pelo Darkmoon. Somente leitura - nunca faz merge.
+  llm: List the fix pull requests Darkmoon's Pro remediation feature prepared. Read-only. Optionally scope to a campaign id and filter by state (proposed, draft, open, merged, closed, error). This tool never merges a pull request.
+parameters:
+  - name: campaign_id
+    type: string
+    required: false
+    label:
+      en_US: Campaign id
+      zh_Hans: 活动 id
+      pt_BR: Id da campanha
+    human_description:
+      en_US: Optional campaign id to scope the pull requests to.
+      zh_Hans: 可选的活动 id，用于限定拉取请求范围。
+      pt_BR: Id de campanha opcional para limitar os pull requests.
+    llm_description: Optional Darkmoon campaign id to scope the pull requests to. This is the only server-side filter.
+    form: llm
+  - name: state
+    type: select
+    required: false
+    label:
+      en_US: State
+      zh_Hans: 状态
+      pt_BR: Estado
+    human_description:
+      en_US: Optional state filter (applied client-side).
+      zh_Hans: 可选的状态过滤（在客户端应用）。
+      pt_BR: Filtro de estado opcional (aplicado no cliente).
+    llm_description: Optional pull-request state to filter by.
+    form: form
+    options:
+      - value: proposed
+        label:
+          en_US: Proposed
+          zh_Hans: 已提议
+          pt_BR: Proposto
+      - value: draft
+        label:
+          en_US: Draft
+          zh_Hans: 草稿
+          pt_BR: Rascunho
+      - value: open
+        label:
+          en_US: Open
+          zh_Hans: 打开
+          pt_BR: Aberto
+      - value: merged
+        label:
+          en_US: Merged
+          zh_Hans: 已合并
+          pt_BR: Merged
+      - value: closed
+        label:
+          en_US: Closed
+          zh_Hans: 已关闭
+          pt_BR: Fechado
+      - value: error
+        label:
+          en_US: Error
+          zh_Hans: 错误
+          pt_BR: Erro
+extra:
+  python:
+    source: tools/list_pull_requests.py

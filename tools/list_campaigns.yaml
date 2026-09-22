@@ -1,0 +1,22 @@
+identity:
+  name: list_campaigns
+  author: ascit31
+  label:
+    en_US: List Campaigns
+    zh_Hans: 列出活动
+    pt_BR: Listar Campanhas
+  description:
+    en_US: Return the campaigns visible to the authenticated Darkmoon dashboard user.
+    zh_Hans: 返回已认证的 Darkmoon 控制台用户可见的活动。
+    pt_BR: Retorna as campanhas visiveis ao usuario autenticado do painel Darkmoon.
+  icon: icon.svg
+description:
+  human:
+    en_US: List the Darkmoon campaigns visible to the connected dashboard user.
+    zh_Hans: 列出已连接控制台用户可见的 Darkmoon 活动。
+    pt_BR: Lista as campanhas do Darkmoon visiveis ao usuario do painel conectado.
+  llm: List the Darkmoon campaigns visible to the authenticated dashboard user, with their ids and status.
+parameters: []
+extra:
+  python:
+    source: tools/list_campaigns.py
